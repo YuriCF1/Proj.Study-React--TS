@@ -1,5 +1,8 @@
 import React from "react";
 
+// Style 
+import './style.scss'
+
 function Lista() {
   // Criando array de tarefas para renderizar
   const tarefas = [
@@ -19,12 +22,12 @@ function Lista() {
 
   // A função não precisa do render como na classe. Já que usando classe, tem que extender do React.Component
   return ( //O JSX sempre espera um html
-    <aside>
+    <aside className="listaTarefas">
       <h2>Estudos do dia</h2>
       <ul> 
         {tarefas.map((item, index) => ( //Tomar cuidado com as chaves, pois elas definem um escopo. Os PARENTESES são o retorno 
 // O react, no map, precisa saber qual item do array corresponde ao dom. Então precisa-se de um chave para likar, chmada de Key. O ideal é colocar um ID, em vez desse índice
-            <li key={index}> 
+            <li key={index} className="item"> 
                 <h3>{item.tarefa}</h3>
                 <span>{item.tempo}</span>
             </li>

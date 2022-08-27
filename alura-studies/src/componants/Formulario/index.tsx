@@ -2,11 +2,14 @@ import { render } from "@testing-library/react";
 import React from "react";
 import Botao from "../Botao";
 
+// Style
+import './style.scss'
+
 class Formulario extends React.Component {
   render(): React.ReactNode {
     return (
-      <form action="">
-        <div>
+      <form className="novaTarefa" action="">
+        <div className="inputContainer">
           <label htmlFor="tarefa">Adicione um novo estudo</label>
           <input
             type="text"
@@ -16,7 +19,7 @@ class Formulario extends React.Component {
             required
           />
         </div>
-        <div>
+        <div className="inputContainer">
           <label htmlFor="tempo">Tempo</label>
           <input
             type="time"

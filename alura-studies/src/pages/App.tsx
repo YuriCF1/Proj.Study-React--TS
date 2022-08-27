@@ -3,12 +3,18 @@ import React from 'react';
 // import './App.css';
 
 // import Botao from './componants/Botao';
-import Formulario from './componants/Formulario';
-import Lista from './componants/lista/lista';
 
+// React
+import Formulario from '../componants/Formulario';
+import Lista from '../componants/lista/lista';
+
+// Style
+import './style.scss';
+
+// É usado ClassName por conta do Class do JS
 function App() {
   return (
-    <div className="App">
+    <div className="AppStyle"> 
       <Formulario />
       <Lista />
     </div>
