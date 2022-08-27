@@ -9,15 +9,21 @@ import Formulario from '../componants/Formulario';
 import Lista from '../componants/lista/lista';
 
 // Style
-import './style.scss';
+// import './style.scss';
+import style from './App.module.scss';
 
 // É usado ClassName por conta do Class do JS
 function App() {
   return (
-    <div className="AppStyle"> 
+    <div className={style.AppStyle}> 
       <Formulario />
       <Lista />
     </div>
+
+    // <div className="AppStyle"> 
+    //   <Formulario />
+    //   <Lista />
+    // </div>
 
   );
 }
