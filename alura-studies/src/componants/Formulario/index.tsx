@@ -1,5 +1,5 @@
-import { render } from "@testing-library/react";
-import { typeImplementation } from "@testing-library/user-event/dist/type/typeImplementation";
+// import { render } from "@testing-library/react";
+// import { typeImplementation } from "@testing-library/user-event/dist/type/typeImplementation";
 import React from "react";
 import Botao from "../Botao";
 
@@ -32,7 +32,12 @@ class Formulario extends React.Component {
             max="01:30:00"
             required
           />
-          <Botao />
+          {/* <Botao 
+          texto="Adicionar"
+          /> */}
+          <Botao>
+            Adicionar
+          </Botao>
         </div>
       </form>
     );
