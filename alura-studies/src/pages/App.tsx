@@ -6,7 +6,8 @@ import React from 'react';
 
 // React
 import Formulario from '../componants/Formulario';
-import Lista from '../componants/lista/lista';
+import Lista from '../componants/lista';
+import Cronometro from '../componants/Cronometro';
 
 // Style
 // import './style.scss';
@@ -18,6 +19,7 @@ function App() {
     <div className={style.AppStyle}> 
       <Formulario />
       <Lista />
+      <Cronometro />
     </div>
 
     // <div className="AppStyle"> 
