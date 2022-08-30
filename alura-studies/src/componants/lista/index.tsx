@@ -22,6 +22,7 @@ function Lista() {
   //   },
   // ];
 
+  // let tarefas = [ // Declarando um estado, que é chamado de rook, pois tem o 'use'
   const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
 
   {
