@@ -20,6 +20,7 @@ class Formulario extends React.Component<{
   adicionarTarefa(evento: React.FormEvent<HTMLFormElement>) {
     //Não precisa declarar a palavra function para criar uma função no class component
     evento.preventDefault();
+    this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {...this.state}])
     console.log("satate: ", this.state);
   }
 

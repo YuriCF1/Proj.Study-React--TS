@@ -14,24 +14,26 @@ import Cronometro from '../componants/Cronometro';
 // Style
 // import './style.scss';
 import style from './App.module.scss';
+import { ITarefa } from '../types/tarefa';
 
 // É usado ClassName por conta do Class do JS
 function App() {
-  const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
+  // const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
 
-  {
-      tarefa: "React",
-      tempo: "02:00:00",
-    },
-    {
-      tarefa: "JavaScript",
-      tempo: "01:00:00",
-    },
-    {
-      tarefa: "TypeScript",
-      tempo: "03:00:00",
-    },
-  ]);
+  // {
+  //     tarefa: "React",
+  //     tempo: "02:00:00",
+  //   },
+  //   {
+  //     tarefa: "JavaScript",
+  //     tempo: "01:00:00",
+  //   },
+  //   {
+  //     tarefa: "TypeScript",
+  //     tempo: "03:00:00",
+  //   },
+  // ]);
+  const [tarefas, setTarefas] = useState<ITarefa[]>([]);
 
   return (
     <div className={style.AppStyle}> 
