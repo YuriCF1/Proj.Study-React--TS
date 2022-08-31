@@ -1,4 +1,6 @@
 import React from 'react';
+import { useState } from "react"; //Instrutor disse que no function component, ele não precisa ser usado
+
 // import logo from './logo.svg';
 // import './App.css';
 
@@ -15,10 +17,26 @@ import style from './App.module.scss';
 
 // É usado ClassName por conta do Class do JS
 function App() {
+  const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
+
+  {
+      tarefa: "React",
+      tempo: "02:00:00",
+    },
+    {
+      tarefa: "JavaScript",
+      tempo: "01:00:00",
+    },
+    {
+      tarefa: "TypeScript",
+      tempo: "03:00:00",
+    },
+  ]);
+
   return (
     <div className={style.AppStyle}> 
-      <Formulario />
-      <Lista />
+      <Formulario setTarefas={setTarefas} />
+      <Lista tarefas={tarefas}/>
       <Cronometro />
     </div>
 

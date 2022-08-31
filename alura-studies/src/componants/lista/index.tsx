@@ -1,11 +1,13 @@
-import React, { useState } from "react"; //Instrutor disse que no function component, ele não precisa ser usado
+// import React, { useState } from "react"; //Instrutor disse que no function component, ele não precisa ser usado
+import { ITarefa } from "../../types/tarefa";
 import Item from "./item";
 
 // Style
 // import './style.scss'
 import style from "./lista.module.scss";
 
-function Lista() {
+function Lista({ tarefas }: { tarefas: ITarefa[] }) {
+  //Array<ITarefas>
   // Criando array de tarefas para renderizar
   // let tarefas = [
   //   {
@@ -23,32 +25,34 @@ function Lista() {
   // ];
 
   // let tarefas = [ // Declarando um estado, que é chamado de rook, pois tem o 'use'
-  const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
 
-  {
-      tarefa: "React",
-      tempo: "02:00:00",
-    },
-    {
-      tarefa: "JavaScript",
-      tempo: "01:00:00",
-    },
-    {
-      tarefa: "TypeScript",
-      tempo: "03:00:00",
-    },
-  ]); 
+  // PASSEI ESSA VARIÁVEL PARA O APP.TSX
+  // const [tarefas, setTarefas] = useState([ // Declarando um estado, que é chamado de rook, pois tem o 'use'
+
+  // {
+  //     tarefa: "React",
+  //     tempo: "02:00:00",
+  //   },
+  //   {
+  //     tarefa: "JavaScript",
+  //     tempo: "01:00:00",
+  //   },
+  //   {
+  //     tarefa: "TypeScript",
+  //     tempo: "03:00:00",
+  //   },
+  // ]);
 
   // A função não precisa do render como na classe. Já que usando classe, tem que extender do React.Component
   return (
     //O JSX sempre espera um html
     <aside className={style.listaTarefas}>
       <h2
-        onClick={() => {
-          console.log("Cliado", tarefas);
-          // tarefas = [...tarefas, { tarefa: "Estudar estado", tempo: "05:00" }];
-          setTarefas([...tarefas, { tarefa: "Estudar estado", tempo: "05:00" }])
-        }}
+      // Função teste
+      // onClick={() => {
+      // tarefas = [...tarefas, { tarefa: "Estudar estado", tempo: "05:00" }];
+      // setTarefas([...tarefas, { tarefa: "Estudar estado", tempo: "05:00" }])
+      // }}
       >
         Estudos do dia
       </h2>
