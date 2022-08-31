@@ -22,7 +22,7 @@ class Formulario extends React.Component {
 
   render(): React.ReactNode {
     return (
-      // O 'bind(this)' serve para fazer com que a função consiga ler o escopo de uma CLASS COMPONENT
+      // O 'bind(this)' serve para fazer com que a função consiga ler o escopo de uma CLASS COMPONENT. "Pegar o escopo de fora, no caso o this"
       <form className={style.novaTarefa} action="" onSubmit={this.adicionarTarefa.bind(this)}>
         <div className={style.inputContainer}>
           <label htmlFor="tarefa">Adicione um novo estudo</label>
@@ -53,7 +53,7 @@ class Formulario extends React.Component {
           {/* <Botao 
           texto="Adicionar"
           /> */}
-          <Botao>
+          <Botao type="submit">
             Adicionar
           </Botao>
         </div>

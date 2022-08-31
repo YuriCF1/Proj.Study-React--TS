@@ -8,7 +8,12 @@ import style from "./botao.module.scss";
 // Tenho que ser explícito se quero usar uma proprieade children, pois no Component não tem mais, só no ReactNode
 
 // class Botao extends React.Component<{texto: string}> {
-class Botao extends React.Component<{children?: React.ReactNode}> {
+class Botao extends React.Component<{
+  children?: React.ReactNode;
+  type?: "button" | "submit" | "reset" | undefined;
+}> {
+  //:? Prop opcional. Especificando os tipos possíveus pois o TS não deixa ser string apenas
+
   render(): React.ReactNode {
     // const backgroundColor = 'green';
     // const style = {
@@ -19,12 +24,15 @@ class Botao extends React.Component<{children?: React.ReactNode}> {
     // const style = {
     //     backgroundColor: estaAtivo ? 'green' : 'red'
     // }
+    const { type = "button" } = this.props; //Se o type não vier, ele será do tipo padrão de botão
     return (
       // <button style={style}>
       // <button className={style.botao}>
       //     Botão
       // </button>
-      <button className={style.botao}>{this.props.children}</button>
+      <button type={type} className={style.botao}>
+        {this.props.children}
+      </button>
     );
   }
 }
