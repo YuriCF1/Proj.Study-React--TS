@@ -22,7 +22,8 @@ class Formulario extends React.Component {
 
   render(): React.ReactNode {
     return (
-      <form className={style.novaTarefa} action="" onSubmit={this.adicionarTarefa.bind(this)}> 
+      // O 'bind(this)' serve para fazer com que a função consiga ler o escopo de uma CLASS COMPONENT
+      <form className={style.novaTarefa} action="" onSubmit={this.adicionarTarefa.bind(this)}>
         <div className={style.inputContainer}>
           <label htmlFor="tarefa">Adicione um novo estudo</label>
           <input
@@ -46,7 +47,7 @@ class Formulario extends React.Component {
             max="01:30:00"
             required
 
-            value={this.state.tempo}
+            value={this.state.tempo} //Dizendo o valor incicial
             onChange={evento => this.setState({...this.state, tempo: evento.target.value})}
           />
           {/* <Botao 
