@@ -3,6 +3,7 @@
 import React from "react";
 import { ITarefa } from "../../types/tarefa";
 import Botao from "../Botao";
+// import { v4 as uuidv4 } from 'uuid'; 
 
 // Style
 // Nome de classe não aceita traços do padrão BEM, tem que ser usando colchete className={style["input-Container"]}
@@ -20,8 +21,20 @@ class Formulario extends React.Component<{
   adicionarTarefa(evento: React.FormEvent<HTMLFormElement>) {
     //Não precisa declarar a palavra function para criar uma função no class component
     evento.preventDefault();
-    this.props.setTarefas(tarefasAntigas => [...tarefasAntigas, {...this.state}])
+    this.props.setTarefas((tarefasAntigas) => [
+      ...tarefasAntigas,
+      {
+        ...this.state,
+        selecionado: false, //Quando ele for criado, ele não estar selecionado nem completado
+        completado: false,
+      },
+    ]);
     console.log("satate: ", this.state);
+    this.setState({
+      //Resetando o formulário
+      tarefa: "",
+      tempo: "00:00",
+    });
   }
 
   render(): React.ReactNode {
