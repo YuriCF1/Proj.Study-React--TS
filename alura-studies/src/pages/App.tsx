@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { useState } from "react"; //Instrutor disse que no function component, ele não precisa ser usado
 
 // import logo from './logo.svg';
@@ -7,14 +7,14 @@ import { useState } from "react"; //Instrutor disse que no function component, e
 // import Botao from './componants/Botao';
 
 // React
-import Formulario from '../componants/Formulario';
-import Lista from '../componants/lista';
-import Cronometro from '../componants/Cronometro';
+import Formulario from "../componants/Formulario";
+import Lista from "../componants/lista";
+import Cronometro from "../componants/Cronometro";
 
 // Style
 // import './style.scss';
-import style from './App.module.scss';
-import { ITarefa } from '../types/tarefa';
+import style from "./App.module.scss";
+import { ITarefa } from "../types/tarefa";
 
 // É usado ClassName por conta do Class do JS
 function App() {
@@ -36,22 +36,20 @@ function App() {
   const [tarefas, setTarefas] = useState<ITarefa[]>([]);
 
   return (
-    <div className={style.AppStyle}> 
+    <div className={style.AppStyle}>
       <Formulario setTarefas={setTarefas} />
-      <Lista tarefas={tarefas}/>
+      <Lista tarefas={tarefas} />
       <Cronometro />
     </div>
 
-    // <div className="AppStyle"> 
+    // <div className="AppStyle">
     //   <Formulario />
     //   <Lista />
     // </div>
-
   );
 }
 
 export default App;
-
 
 // function App() {
 //   return (
@@ -60,4 +58,3 @@ export default App;
 //     </div>
 //   );
 // }
-

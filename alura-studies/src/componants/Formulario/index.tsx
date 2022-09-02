@@ -3,7 +3,7 @@
 import React from "react";
 import { ITarefa } from "../../types/tarefa";
 import Botao from "../Botao";
-// import { v4 as uuidv4 } from 'uuid'; 
+// import { v4 as uuidv4 } from 'uuid';
 
 // Style
 // Nome de classe não aceita traços do padrão BEM, tem que ser usando colchete className={style["input-Container"]}
