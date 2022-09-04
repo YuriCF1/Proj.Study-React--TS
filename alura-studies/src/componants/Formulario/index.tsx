@@ -3,7 +3,7 @@
 import React from "react";
 import { ITarefa } from "../../types/tarefa";
 import Botao from "../Botao";
-// import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 // Style
 // Nome de classe não aceita traços do padrão BEM, tem que ser usando colchete className={style["input-Container"]}
@@ -27,6 +27,7 @@ class Formulario extends React.Component<{
         ...this.state,
         selecionado: false, //Quando ele for criado, ele não estar selecionado nem completado
         completado: false,
+        id: uuidv4(),
       },
     ]);
     console.log("satate: ", this.state);
