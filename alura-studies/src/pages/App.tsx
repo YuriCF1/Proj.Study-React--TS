@@ -38,7 +38,12 @@ function App() {
   const [selecionado, setSelecionado] = useState<ITarefa>();
 
   function selecionaTarefa(tarefaSelecionada: ITarefa) { //Responsável por iterar a tarefa 
-    setSelecionado(tarefaSelecionada)
+    setSelecionado(tarefaSelecionada) //Passando para o estado da memória com a tarefa selecionada
+    setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => ({
+      ...tarefa,
+      selecionado: tarefa.id === tarefaSelecionada.id ? true : false
+
+    } ))); //Aqui eu posso retornar algo, ou fazer uma arrow function para pegar o estado anterior
 
   }
   

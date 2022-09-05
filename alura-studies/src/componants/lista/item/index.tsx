@@ -23,7 +23,8 @@ export default function Item({
   // export default function item(props: {tarefa: string, tempo: string}) { //Posso exportar a função assim que declaro
   // const {tarefa, tempo} = props; //Posso definiir o que é a props já nos parâmetros da função
   return (
-    <li className={style.item} onClick={() => selecionaTarefa({
+    <li className={`${style.item} ${selecionado ? style.itemSelecionado: ''}`} 
+    onClick={() => selecionaTarefa({
       tarefa,
       tempo,
       selecionado,
