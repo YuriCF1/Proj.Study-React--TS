@@ -1,12 +1,19 @@
 // import React, { useState } from "react"; //Instrutor disse que no function component, ele não precisa ser usado
 import { ITarefa } from "../../types/tarefa";
 import Item from "./item";
+import style from "./lista.module.scss";
+
+interface Props {
+  tarefas: ITarefa[],
+  selecionaTarefa: (tarefaSelecionada: ITarefa) => void 
+
+}
 
 // Style
 // import './style.scss'
-import style from "./lista.module.scss";
 
-function Lista({ tarefas }: { tarefas: ITarefa[] }) {
+// function Lista({ tarefas }: { tarefas: ITarefa[] }) {
+function Lista({ tarefas, selecionaTarefa }: Props) {
   //Array<ITarefas>
   // Criando array de tarefas para renderizar
   // let tarefas = [
@@ -60,7 +67,7 @@ function Lista({ tarefas }: { tarefas: ITarefa[] }) {
         {tarefas.map(
           (
             item,
-            index //Tomar cuidado com as chaves, pois elas definem um escopo. Os PARENTESES são o retorno
+            // index //Tomar cuidado com as chaves, pois elas definem um escopo. Os PARENTESES são o retorno
           ) => (
             // O react, no map, precisa saber qual item do array corresponde ao dom. Então precisa-se de um chave para likar, chmada de Key. O ideal é colocar um ID, em vez desse índice
             // <li key={index} className={style.item}>
@@ -76,7 +83,9 @@ function Lista({ tarefas }: { tarefas: ITarefa[] }) {
 
             // Segunda forma para importar, pois a tarefa é um objeto
             <Item
-              key={index}
+              selecionaTarefa={selecionaTarefa}
+              key={item.id}
+              // key={index}
               {...item} // Usando cada elemento como Prop na function Item
               // Desustruturando. Cuidado se o objeto tiver muita informação, pode dá problema
             />
