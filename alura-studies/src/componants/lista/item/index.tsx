@@ -1,5 +1,5 @@
 import { ITarefa } from "../../../types/tarefa";
-import style from "../lista.module.scss";
+import style from "./item.module.scss";
 
 interface Props extends ITarefa {
   selecionaTarefa: (tarefaSelecionada: ITarefa) => void;
@@ -18,7 +18,7 @@ export default function Item({
   //   tarefa: string;
   //   tempo: string;
   // })
-  console.log("item atual: ", { tarefa, tempo, selecionado, completado, id });
+  // console.log("item atual: ", { tarefa, tempo, selecionado, completado, id });
   //Posso exportar a função assim que declaro
   // export default function item(props: {tarefa: string, tempo: string}) { //Posso exportar a função assim que declaro
   // const {tarefa, tempo} = props; //Posso definiir o que é a props já nos parâmetros da função
