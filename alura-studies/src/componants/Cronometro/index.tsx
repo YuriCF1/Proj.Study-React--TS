@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Botao from "../Botao";
 import Relogio from "./Relogio";
 import { tempoParaSegundos } from "../../common/utils/time"; //Ele tem chave pois não é export default
@@ -11,7 +12,13 @@ interface Props {
 }
 
 export default function Cronometro({ selecionado }: Props) {
-  console.log('conversao: ', tempoParaSegundos('01:01:01'));
+  // console.log('conversao: ', tempoParaSegundos('01:01:01')); //Teste
+  const [tempo, setTempo] = useState<Number>();
+  if(selecionado?.tempo) {
+    setTempo(tempoParaSegundos(selecionado.tempo))
+
+  }
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
