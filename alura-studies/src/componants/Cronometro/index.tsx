@@ -20,6 +20,16 @@ export default function Cronometro({ selecionado }: Props) {
     }
   }, [selecionado]); //Sempre que o selecionado mudar, executa a funçõa
 
+  function regressiva(contador: number = 0) {
+    //Definindo um valor padrão de 0 para que nunca seja undefined
+    setTimeout(() => {
+      if (contador > 0) {
+        setTempo(contador - 1);
+        return regressiva(contador - 1); //Fazendo um loop dentro da própria função
+      }
+      console.log('Cabou');
+    }, 1000);
+  }
   // Não funciona pois ele só pega o valor do componentne quando ele é iniciado
   // const [tempo, setTempo] = useState<number>((tempoParaSegundos(String(selecionado?.tempo)))); //'Number' é função, 'number' é tipo.
 
@@ -31,12 +41,10 @@ export default function Cronometro({ selecionado }: Props) {
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o cronômetro</p>
       <div className={style.relogioWrapper}>
-        <Relogio tempo={tempo}/>
+        <Relogio tempo={tempo} />
       </div>
       {/* <div> Tempo: {tempo}</div> */}
-      <Botao onClick={() =>  console.log('Começado')}>
-        Começar
-      </Botao>
+      <Botao onClick={() => regressiva(tempo)}>Começar</Botao>
     </div>
   );
 }
