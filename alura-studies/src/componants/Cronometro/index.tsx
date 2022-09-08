@@ -34,7 +34,9 @@ export default function Cronometro({ selecionado }: Props) {
         <Relogio tempo={tempo}/>
       </div>
       {/* <div> Tempo: {tempo}</div> */}
-      <Botao>Começar</Botao>
+      <Botao onClick={() =>  console.log('Começado')}>
+        Começar
+      </Botao>
     </div>
   );
 }

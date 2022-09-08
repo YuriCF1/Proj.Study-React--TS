@@ -10,8 +10,7 @@ import style from "./botao.module.scss";
 // class Botao extends React.Component<{texto: string}> {
 class Botao extends React.Component<{
   children?: React.ReactNode;
-  type?: "button" | "submit" | "reset" | undefined;
-}> {
+  type?: "button" | "submit" | "reset" | undefined, onClick?: () => void}> {
   //:? Prop opcional. Especificando os tipos possíveus pois o TS não deixa ser string apenas
 
   render(): React.ReactNode {
@@ -24,13 +23,13 @@ class Botao extends React.Component<{
     // const style = {
     //     backgroundColor: estaAtivo ? 'green' : 'red'
     // }
-    const { type = "button" } = this.props; //Se o type não vier, ele será do tipo padrão de botão
+    const { type = "button", onClick } = this.props; //Se o type não vier, ele será do tipo padrão de botão. Passando o onclick via props
     return (
       // <button style={style}>
       // <button className={style.botao}>
       //     Botão
       // </button>
-      <button type={type} className={style.botao}>
+      <button type={type} className={style.botao} onClick={onClick}>
         {this.props.children}
       </button>
     );
