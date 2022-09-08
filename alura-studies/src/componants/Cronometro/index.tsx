@@ -7,10 +7,10 @@ import style from "./cronometro.module.scss";
 import { ITarefa } from "../../types/tarefa";
 
 interface Props {
-  selecionado: ITarefa | undefined; //Tem que colocar o undefined pq o primeiro estado sempre será ele, já que nada foi selecionado
+  selecionado: ITarefa | undefined, finalizarTarefa: () => void; //Tem que colocar o undefined pq o primeiro estado sempre será ele, já que nada foi selecionado
 }
 
-export default function Cronometro({ selecionado }: Props) {
+export default function Cronometro({ selecionado, finalizarTarefa }: Props) {
   // console.log('conversao: ', tempoParaSegundos('01:01:01')); //Teste
   const [tempo, setTempo] = useState<number>(); //'Number' é função, 'number' é tipo
   useEffect(() => {
@@ -27,7 +27,7 @@ export default function Cronometro({ selecionado }: Props) {
         setTempo(contador - 1);
         return regressiva(contador - 1); //Fazendo um loop dentro da própria função
       }
-      console.log('Cabou');
+      finalizarTarefa(); //Se o contador for igual a zero, acaba
     }, 1000);
   }
   // Não funciona pois ele só pega o valor do componentne quando ele é iniciado

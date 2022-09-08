@@ -37,24 +37,40 @@ function App() {
 
   const [selecionado, setSelecionado] = useState<ITarefa>();
 
-  function selecionaTarefa(tarefaSelecionada: ITarefa) { //Responsável por iterar a tarefa 
-    setSelecionado(tarefaSelecionada) //Passando para o estado da memória com a tarefa selecionada
-    setTarefas(tarefasAnteriores => tarefasAnteriores.map(tarefa => ({
-      ...tarefa,
-      selecionado: tarefa.id === tarefaSelecionada.id ? true : false
-
-    } ))); //Aqui eu posso retornar algo, ou fazer uma arrow function para pegar o estado anterior
-
+  function selecionaTarefa(tarefaSelecionada: ITarefa) {
+    //Responsável por iterar a tarefa
+    setSelecionado(tarefaSelecionada); //Passando para o estado da memória com a tarefa selecionada
+    setTarefas((tarefasAnteriores) =>
+      tarefasAnteriores.map((tarefa) => ({
+        ...tarefa,
+        selecionado: tarefa.id === tarefaSelecionada.id ? true : false,
+      }))
+    ); //Aqui eu posso retornar algo, ou fazer uma arrow function para pegar o estado anterior
   }
-  
+
+  function finalizarTarefa() {
+    if (selecionado) { //Alterando as propriedades da tarefa terminada
+      setSelecionado(undefined);
+      setTarefas((tarefasAnteriores) =>
+        tarefasAnteriores.map((tarefa) => {
+          if (tarefa.id === selecionado.id) {
+            return {
+              ...tarefa,
+              selecionado: false,
+              completado: true,
+            };
+          }
+          return tarefa;
+        })
+      );
+    }
+  }
+
   return (
     <div className={style.AppStyle}>
       <Formulario setTarefas={setTarefas} />
-      <Lista 
-        tarefas={tarefas} 
-        selecionaTarefa={selecionaTarefa}
-      />
-      <Cronometro selecionado={selecionado} />
+      <Lista tarefas={tarefas} selecionaTarefa={selecionaTarefa} />
+      <Cronometro selecionado={selecionado} finalizarTarefa={finalizarTarefa} />
     </div>
 
     // <div className="AppStyle">
