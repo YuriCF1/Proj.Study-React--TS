@@ -4,13 +4,33 @@ import React from "react";
 // import './style.scss'
 import style from "./botao.module.scss";
 
+// FAZENDO COM FUNÇÃO____________________
+interface Props {
+  type?: "button" | "submit" | "reset" | undefined;
+  onClick?: () => void;
+  children?: React.ReactNode;
+}
+
+function Botao({ onClick, type, children }: Props) {
+  return (
+    <button type={type} className={style.botao} onClick={onClick}>
+      {/* {this.props.children} */}
+      {children}
+    </button>
+  );
+}
+
+
+// FAZENDO COM CLASSE________________NÃO ESTÁ SENDO USADA____________________
 // class Botao extends React.Component<{texto: string}> {
 // Tenho que ser explícito se quero usar uma proprieade children, pois no Component não tem mais, só no ReactNode
 
 // class Botao extends React.Component<{texto: string}> {
-class Botao extends React.Component<{
+class Botao1 extends React.Component<{
   children?: React.ReactNode;
-  type?: "button" | "submit" | "reset" | undefined, onClick?: () => void}> {
+  type?: "button" | "submit" | "reset" | undefined;
+  onClick?: () => void;
+}> {
   //:? Prop opcional. Especificando os tipos possíveus pois o TS não deixa ser string apenas
 
   render(): React.ReactNode {
