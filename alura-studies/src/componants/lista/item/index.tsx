@@ -26,7 +26,7 @@ export default function Item({
     <li
       className={`${style.item} ${selecionado ? style.itemSelecionado : ""} ${completado ? style.itemCompletado : ""}`}
       onClick={() =>
-        selecionaTarefa({
+        !completado && selecionaTarefa({ //Se ele não tiver completado
           tarefa,
           tempo,
           selecionado,
@@ -37,6 +37,7 @@ export default function Item({
     >
       <h3>{tarefa}</h3>
       <span>{tempo}</span>
+      {completado && <span className={style.concluido} artia-label="tarefa completada"></span>}
     </li>
   );
 }
