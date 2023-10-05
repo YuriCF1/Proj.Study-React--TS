@@ -7,9 +7,9 @@ import { useState } from "react"; //Instrutor disse que no function component, e
 // import Botao from './componants/Botao';
 
 // React
-import Formulario from "../componants/Formulario";
-import Lista from "../componants/lista";
-import Cronometro from "../componants/Cronometro";
+import Formulario from "../components/Formulario";
+import Lista from "../components/lista";
+import Cronometro from "../components/Cronometro";
 
 // Style
 // import './style.scss';
